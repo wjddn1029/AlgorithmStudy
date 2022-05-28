@@ -7,18 +7,18 @@
 def solution(N, stages):
     answer = []
     failRate = [0] * (N + 1)
-    for i, v in enumerate(stages):
+    for i, v in enumerate(stages):  #단계별 실패율 총합
        failRate[v-1] += 1
     player = len(stages)
     dic = {}
     for i, v in enumerate(failRate):
-        if player != 0:
+        if player != 0:     #0인 경우 예외처리
             failRate[i] /= player
             player -= v
         else:
             failRate[i] = 0
         dic[i+1] = failRate[i]
-    dic = sorted(dic.items(), key = lambda x:x[1], reverse=True)
+    dic = sorted(dic.items(), key = lambda x:x[1], reverse=True)    #value 기준 값 정렬
     for k, v in dic:
         if k <= N:
             answer.append(k)
