@@ -53,3 +53,52 @@ class Node{
 - 한 개의 루트 노드만이 존재하며 모든 자식 노드는 한 개의 부모 노드만을 가진다.
 - 순회는 `Pre-order`, `In-order`, `Post-order`로 이루어진다. 이 세가지 모두 DFS/BFS 안에 있다.
 - 트리는 <u>이진트리, 이진탐색트리, 균형트리(AVL트리, red-black트리), 이진 힙(최대 힙, 최소 힙)</u> 등이 있다.
+
+# 트리(Tree)의 종류
+
+### 이진트리
+- 각 노드가 최대 두개의 자식을 가지는 트리
+- 모든 트리가 이진트리는 아니다.
+
+##### 순회의 종류
+순회는 재귀(Recursion)으로 구현한다!!
+
+1. 전위 순회 (pre-order traversal)
+![전위순회](https://t1.daumcdn.net/cfile/tistory/27449437588559823F)
+- 현재 노드 -> 왼쪽 가지 -> 오른쪽 가지
+```c++
+void preOrderTraversal(TreeNode node){
+    if(node != null){
+        visit(node);
+        preOrderTraversal(node.left);
+        preOrderTraversal(node.right);
+    }
+}
+```
+
+2. 중위 순회 (in-order traversal)
+![중위순회](https://t1.daumcdn.net/cfile/tistory/27739B3458859B5202)
+- 왼쪽 가지 -> 현재 노드 -> 오른쪽 가지
+```c++
+void inOrderTraversal(TreeNode node){
+    if(node!=null){
+        inOrderTraversal(node.left);
+        visit(node);
+        inOrderTraversal(node.right);
+    }
+}
+```
+
+
+3. 후위 순회 (post-order traversal)
+![후위순회](https://t1.daumcdn.net/cfile/tistory/225C7F445885A9AA2F)
+- 왼쪽 가지 -> 오른쪽 가지 -> 현재 노드
+```c++
+void postOrderTraversal(TreeNode node){
+    if(node != null){
+        postOrderTraversal(node.left);
+        postOrderTraversal(node.right);
+        visit(node);
+    }
+}
+```
