@@ -17,15 +17,14 @@ a = list(a)
 print(a)
 def isPrimeNumber(a):
     flag = True
-    for i in range(2, a + 1):
+    for i in range(2, a):
         if a % i == 0:
-            flag = False
+            return False
     return flag
 
 result = 0
 for i in a:
     print(isPrimeNumber(i))
-    print(i)
     if not isPrimeNumber(i):
         result += 1
 
