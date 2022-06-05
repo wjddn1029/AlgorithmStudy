@@ -102,3 +102,44 @@ void postOrderTraversal(TreeNode node){
     }
 }
 ```
+
+
+### 이진 탐색 트리 (Binary Search Tree)
+- 모든 노드가 아래의 순서를따르는 속성이 있는 이진 트리다.
+- 모든 노드 왼쪽 자식들 <= n < 모든 오른쪽 자식들 (모든 노드 n에 대해서 반드시 참)
+
+
+### 균형 트리
+- O(logN) 시간에 Insert와 find를 할 수 있을 정도로 균형이 잘 잡혀있는 경우
+- ex) 레드-블랙 트리, AVL 트리
+
+
+### 완전 이진 트리 vs 전 이진 트리 vs 포화 이진 트리
+![완전포](https://gmlwjd9405.github.io/images/data-structure-tree/tree-types-example.png)
+
+
+#### 1. 완전 이진 트리 (Complete Binary Tree)
+![완전이진트리](https://gmlwjd9405.github.io/images/data-structure-tree/Complete-Binary-Tree.png)
+
+- 트리의 모든 높이에서 노드가 꽉 차있는 이진 트리. 즉, 마지막 레벨을 제외하고 모든 레벨이 완전히 채워져있다.
+- 마지막 레벨은 꽉 차있지 않아도 되지만 노드가 왼쪽에서 오른쪽으로 채워져야 한다.
+- 마지막 레벨 h에서 (1 ~ 2h-1) 개의 노드를 가질 수 있다.
+- 또 다른 정의는 가장 오른쪽 잎 노드가 (아마도 모두) 제거된 포화 이진 트리다.
+- 완전 이진 트리는 배열을 사용해 효율적으로 표현 가능하다.
+
+#### 2. 전 이진트리 (Full Binary Tree 또는 Strictly Binary Tree)
+![전이진트리](https://gmlwjd9405.github.io/images/data-structure-tree/Full-Binary-Tree.png)
+
+- 모든 노드가 0개 또는 2개의 자식 노드를 갖는 트리
+
+#### 3. 포화 이진 트리 (Perfect Binary Tree)
+![포화이진트리](https://gmlwjd9405.github.io/images/data-structure-tree/Perfect-Binary-Tree.png)
+
+- 전 이진 트리이면서 완전 이진 트리인 경우
+- 모든 말단 노드는 같은 높이에 있어야 하며, 마지막 단계에서 노드의 개수가 최대가 되어야 한다.
+- 모든 내부 노드는 두 개의 자식 노드를 가진다. 
+- 모든 말단 노드가 동일한 깊이 또는 레벨을 갖는다.
+- 노드의 개수가 정확히 2^(k-1)개여야 한다. (k : 트리의 높이) -> 흔하게 나타나는 경우가 아니다. 즉, 이진 트리가 모두 포화 이진 트리일 것이라고 생각하지 않는다.
+
+
+---
