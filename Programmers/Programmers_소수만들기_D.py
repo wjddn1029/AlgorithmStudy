@@ -1,6 +1,6 @@
 from itertools import combinations
 
-def solution(nums):
+def solution(nums): # 3개 뽑고 합 구하기
     answer = list(combinations(nums, 3))
     a = []
     for i in answer:
@@ -14,7 +14,7 @@ def solution(nums):
     return result
 
 
-def isPrimeNumber(a):
+def isPrimeNumber(a):   # 소수 판별 함수
     flag = True
     for i in range(2, a):
         if a % i == 0:
