@@ -1,4 +1,3 @@
-a =  [1,2,3,4]
-b = 0
-for i in a:
-    b += i
+#https://programmers.co.kr/%C3%A5/courses/30/lessons/77485?language=python3
+
+
