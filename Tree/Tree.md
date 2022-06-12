@@ -202,3 +202,8 @@ void postOrderTraversal(TreeNode node){
 | 간선의 수 | 그래프에 따라 간선의 수가 다름. </br> 간선이 없을 수도 있음. | 노드가 N인 트리는 항상 N-1의 간선을 가짐.
 | 경로 | - | 임의의 두 노드간의 경로는 유일
 | 예시 및 종류 | 지도, 지하철 노선도의 최단 경로, 전기 회로의 소자들, 도로(교차점과 일방 통행길), 선수과목 | 이진트리, 이진 탐색 트리 </br> 균형 트리(AVL 트리, red-block 트리), </br> 이진 힙(최대 힙, 최소 힙) 등
+
+
+
+## Reference
+- <https://codingstarter.tistory.com/8?category=935492>
