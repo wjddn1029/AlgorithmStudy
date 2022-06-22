@@ -1,18 +1,15 @@
 # https://programmers.co.kr/learn/courses/30/lessons/68645
 
 def solution(n):
-    # 1
     res = [[0] * n for _ in range(n)]   # 모두 0으로 개수만큼 세팅
     answer = []
-    x, y = -1, 0
-    num = 1
+    x, y = -1, 0        # for문 실행시 x값을 처음에 0으로 세팅해주기 위해 초기값은 -1로 세팅
+    num = 1             # 들어갈 숫자
 
-    # 2
     for i in range(n):
         for j in range(i, n):
-            # 3
             # down
-            if i % 3 == 0:
+            if i % 3 == 0:          # 3으로 퍼센트연산해준 이유는 down/right/up 세 동작이기 때문
                 x += 1
 
             # right
@@ -23,12 +20,13 @@ def solution(n):
             elif i % 3 == 2:
                 x -= 1
                 y -= 1
-            # 4
-            res[x][y] = num
+
+            res[x][y] = num        # res에 저장
             num += 1
 
     for i in res:
         for j in i:
             if j != 0:
-                answer.append(j)
+                answer.append(j)   # 저장했던 배열 for문이용 합쳐줍니다.
+
     return answer
