@@ -10,12 +10,12 @@ def solution(people, limit):
 
     while q:
         if len(q) >= 2:                     # 큐에 2개이상 남았을 때 비교하여 처리
-            if q[0] + q[-1] <= limit:       # 큐 내에 가장 작은값과 가장 큰값을
-                q.pop()
+            if q[0] + q[-1] <= limit:       # 큐 내에 가장 작은값과 가장 큰값을 더하여 limit과 비교
+                q.pop()                     # limit보다 작거나 같으면 둘다 보트에 태우고(pop), count 1 증가
                 q.popleft()
                 count += 1
-            elif q[0] + q[-1] > limit:      #
-                q.pop()
+            elif q[0] + q[-1] > limit:
+                q.pop()                     # limit보다 크면 무게가 큰 사람을 보트에 태움(greedy), count 1 증가
                 count += 1
         else:                               # 큐에 혼자 남았을 경우 혼자 탈출
             if q[0] <= limit:
