@@ -1,19 +1,19 @@
 #https://programmers.co.kr/learn/courses/30/lessons/42885?language=python3
-from itertools import combinations
-from collections import deque
-
 def solution(people, limit):
-    weights = list(combinations(people, 2))
-    p = deque(people.sort())
     answer = 0
-    for i in weights:
-        if limit >= sum(i):
-            if i[0] in p and i[1] in p:
-                p.pop()
-                p.pop()
-                answer += 1
+    people.sort()
 
-    answer += len(people)
+    left = 0
+    right = len(people) - 1
+
+    while left <= right:
+        if people[left] + people[right] <= limit:
+            left += 1
+            right -= 1
+        else:
+            right -= 1
+
+        answer += 1
     return answer
 
 
@@ -22,3 +22,6 @@ print(solution([70, 50, 80, 50], 100))
 # people	limit	return
 # [70, 50, 80, 50]	100	3
 # [70, 80, 50]	100	3
+
+# 투포인터 개념으로 풀이
+# 가장큰 몸무게와 가장 작은몸무게 합을 이용하여
