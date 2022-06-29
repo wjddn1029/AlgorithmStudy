@@ -2,9 +2,8 @@ from collections import deque
 
 def solution(progresses, speeds):
     answer = []
-    days = 0
-    count = 0
-
+    days, count = 0, 0
+    
     q = deque(progresses)
     s = deque(speeds)
 
