@@ -33,3 +33,18 @@ def solution(number, k):
     return ''.join(answer)
 
 
+# 3차풀이 (2차풀이 코드정리)
+def solution(number, k):
+    answer = []
+
+    for i in number:
+        while k > 0 and answer and answer[-1] < i:
+            answer.pop()
+            k -= 1
+        answer.append(i)
+
+    return ''.join(answer[:len(answer) - k])
+
+number = '1924'
+k = 2
+print(solution(number, k))
