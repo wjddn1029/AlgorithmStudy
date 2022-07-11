@@ -1,5 +1,7 @@
 from collections import deque, Counter
 
+#https://doragoon.tistory.com/3
+
 data = deque([2,3,4])
 data.appendleft(1)  # 첫번째 인덱스에 원소 넣기
 print(data)
