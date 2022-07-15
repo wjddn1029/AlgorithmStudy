@@ -1,6 +1,6 @@
 import heapq
 
-
+#https://doragoon.tistory.com/4
 def heapsort(iterable): #최소힙
     h = []
     result = []
