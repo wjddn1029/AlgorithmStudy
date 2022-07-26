@@ -5,9 +5,7 @@ def solution(board, moves):
         flag = True
         for j in range(len(board)):
             if flag and board[j][i-1] != 0:
-                check_box = 0
-                if box:
-                    check_box = box[-1]
+                check_box = box[-1] if box else 0
                 if check_box == board[j][i-1]:
                     answer += 2
                     box.pop()
