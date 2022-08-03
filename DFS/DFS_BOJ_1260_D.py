@@ -1,4 +1,11 @@
-#https://www.acmicpc.net/problem/1260
+def dfs(graph, v, visited):
+    #현재노드 방문처리
+    visited[v] = 1
+    print(v, end=' ')
+    for i in graph[v]:
+        if visited[i] != 1:
+            dfs(graph, i, visited)
+
 n, m, v = map(int, input().split())
 graph = [[] for _ in range(n + 1)]
 for i in range(m):
@@ -12,22 +19,11 @@ for i in range(m):
 
 
 visited = [0] * (n + 1)
-
-print(graph)
-print(visited)
-
-def dfs(graph, v, visited):
-    #현재노드 방문처리
-    visited[v] = 1
-    print(v, end= ' ')
-    for i in graph[v]:
-        if visited[i] != 1:
-            dfs(graph, i, visited)
-
 dfs(graph, v, visited)
-print(visited)
 
 #단방향 그래프 기준
+#https://www.acmicpc.net/problem/1260
+
 
 
 

@@ -1,5 +1,13 @@
 from collections import deque
 
+def dfs(graph, v, visited):
+    #현재노드 방문처리
+    visited[v] = 1
+    print(v, end=' ')
+    for i in graph[v]:
+        if visited[i] != 1:
+            dfs(graph, i, visited)
+
 def bfs(graph, start, visited):
     queue = deque([start])
     visited[start] = 1
@@ -19,13 +27,25 @@ for i in range(m):
     graph[b].append(a)
 
 #번호가 작은것 번저 방문하기 위한 정렬
-for i in range(m):
+for i in range(n+1):
     graph[i].sort()
 
 visited = [0] * (n + 1)
+dfs(graph, v, visited)
+print('')
+visited = [0] * (n + 1)
 bfs(graph, v, visited)
 
+
+
 #단방향 그래프 기준
+#https://www.acmicpc.net/problem/1260
+
+
+
+
+
+
 
 
 
