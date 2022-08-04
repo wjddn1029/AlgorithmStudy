@@ -6,8 +6,9 @@ n, m = map(int, input().split())
 graph = []
 
 for _ in range(n):
-    graph.append(list(map(int, input().rstrip())))
+    graph.append(list(map(int, input().rstrip())))  # readline의 경우 맨 뒤에 '\n'까지 입력받으므로 제거해줘야 함
 
+# 좌/우/위/아래 방향 이동
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
