@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def dfs(graph, v, visited):
     #현재노드 방문처리
     visited[v] = 1
@@ -8,7 +9,9 @@ def dfs(graph, v, visited):
         if visited[i] != 1:
             dfs(graph, i, visited)
 
+
 def bfs(graph, start, visited):
+    #시작 방문노드 큐 추가 및 방문처리
     queue = deque([start])
     visited[start] = 1
     while queue:
@@ -18,6 +21,7 @@ def bfs(graph, start, visited):
             if visited[i] != 1:
                 queue.append(i)
                 visited[i] = 1
+
 
 n, m, v = map(int, input().split())
 graph = [[] for _ in range(n + 1)]
@@ -37,8 +41,6 @@ visited = [0] * (n + 1)
 bfs(graph, v, visited)
 
 
-
-#단방향 그래프 기준
 #https://www.acmicpc.net/problem/1260
 
 
