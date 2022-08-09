@@ -1,5 +1,5 @@
-n = int(input())
-m = int(input())
+n = int(input())     #정점
+m = int(input())    #연결수
 
 graph = [[] for _ in range(n+1)]
 for _ in range(m):
@@ -21,3 +21,5 @@ def dfs(graph, cur_node, visited):
 
 dfs(graph, 1, visited)
 print(len(visited) - 1)
+
+#https://www.acmicpc.net/problem/2606
