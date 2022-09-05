@@ -9,19 +9,20 @@ def bfs(x):
     while q:
         a = q.popleft()
         for i in que[a]:
-            if visited[i] == 0:
+            if visited[i] == 0:     # 방문한 적이 없으면
                 visited[i] = -visited[a]
                 q.append(i)
             else:
-                if visited[i] == visited[a]:
+                if visited[i] == visited[a]:       # 현재 정점과 연결된 정점의 그룹값이 같다면
                     return False
     return True
+
 
 k = int(input())
 for i in range(k):
     v, e = map(int, input().split())
     que = [[] for i in range(v+1)]
-    visited = [0]*(v+1)
+    visited = [0]*(v+1)     # 방문한 정점 체크
     flg = 1
     for j in range(e):
         a, b = map(int, input().split())
