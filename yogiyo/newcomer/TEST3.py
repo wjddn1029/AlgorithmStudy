@@ -19,8 +19,8 @@ def solution(S, C):
         print(compare_str)
         split_list = compare_str.split('$')
         tmp_list = []
-        for i in split_list:
-            tmp_list.append(contraction(i))
+        for j in split_list:
+            tmp_list.append(contraction(j))
         if tmp_list == split_list:
             flag = False
             ans = compare_str.count('$')
@@ -35,6 +35,5 @@ def contraction(s):
     return a
 
 print(solution('aabcddcb', [3,5,1,4,7]))
-
 
 
