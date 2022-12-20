@@ -22,7 +22,7 @@ def solution2(n, lost, reserve):
 
     return answer
 
-
+print(solution(5, [2,4], [1,3,5]))
 
 
 
