@@ -41,7 +41,8 @@ if month_b-1 == 0:
 
 day = day + (temp_day_b - temp_day_a)
 
-print(day)a, b = map(str, input().split())
+print(day)
+a, b = map(str, input().split())
 year_a = int(a[:4])
 year_b = int(b[:4])
 month_a = int(a[4:6])
