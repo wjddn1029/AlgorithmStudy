@@ -14,6 +14,7 @@ dy = [0, 1, 0, -1]
 
 result = 0
 
+total = 0
 # DFS를 이용해 각 바이러스가 사방으로 퍼지도록 하기
 def virus(x, y):
     for i in range(4):
@@ -63,6 +64,9 @@ def dfs(count):
                 dfs(count)
                 graph[i][j] = 0
                 count -= 1
+    global total
+    total += 1
+    print('연산수 : ' + str(total))
 
 dfs(0)
 print(result)
