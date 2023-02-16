@@ -1,40 +1,46 @@
+from collections import deque
+
 n, k = map(int, input().split())
-virus = []
-for _ in range(n):
-    virus.append(list(map(int, input().split())))
 
-s, x, y = map(int, input().split())
+graph = []  # 전체 보드 정보를 담는 리스트
+data = [] # 바이러스에 대한 정보를 담는 리스트
 
-print(virus)
-
-dx = [0, 1, 0, -1]
-dy = [1, 0, -1, 0]
-
-parasite = [[False] * n for _ in range(n)]
-
-# for i in range(n):
-#     for j in range(n):
-#         if virus[i][j] != 0:
-#             parasite[i][j] = True
+for i in range(n):
+    # 보드 정보를 한 줄 단위로 이볅
+    graph.append(list(map(int, input().split())))
+    for j in range(n):
+        # 해당 위치에 바이러스가 존재하는 경우
+        if graph[i][j] != 0:
+            # (바이러스 종류, 시간, 위치X, 위치Y) 삽입
+            data.append((graph[i][j], 0, i, j))
 
 
-def bfs(x1, y1, k1):
+# 정렬 이후에 큐로 옮기기 (낮은 번호의 바이러스가 먼저 증식 하므로)
+data.sort()
+q = deque(data)
+
+target_s, target_x, target_y = map(int, input().split())
+
+# 바이러스가 퍼져나갈 수 있는 4가지 위치
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
+
+# 너비 우선 탐색
+while q:
+    virus, s, x, y = q.popleft()
+    # 정확히 s초가 지나거나, 큐가 빌 때까지 반복
+    if s == target_s:
+        break
+    # 현재 노드에서 주변 4가지 위치를 각각 확인
     for i in range(4):
-        nx = x1 + dx[i]
-        ny = y1 + dy[i]
-        # 상하좌우 중에서 바이러스가 퍼질 수 있는 경우
-        if nx >= 0 and nx < n and ny >= 0 and ny < n:
-            # 해당 위치에 바이러스를 배치하고, 다시 재귀적으로 수행
-            if virus[nx][ny] == 0:
-                virus[nx][ny] = k1
+        nx = x + dx[i]
+        ny = y + dy[i]
+        # 해당 위치로 이동 할 수 있는 경우
+        if 0 <= nx and nx < n and 0 <= ny and ny < n:
+            # 아직 방문하지 않는 위치라면, 그 위치에 바이러스 넣기
+            if graph[nx][ny] == 0:
+                graph[nx][ny] = virus
+                q.append((virus, s + 1, nx, ny))
 
-
-for time in range(1, s+1):
-    for i in range(n):
-        for j in range(n):
-            if parasite[i][j] == False:
-                parasite[i][j] = True
-                bfs(i, j, time)
-
-
-
+print(graph[target_x - 1][target_y - 1])
