@@ -28,7 +28,7 @@ while running:
 
     # 현재 시간
     current_time = time.strftime("%H:%M:%S", time.localtime())
-    text = font.render(current_time, True, red)
+    text = font.render(current_time, True, white)
     text_rect = text.get_rect(center=(screen_width/2, screen_height/2))
     screen.blit(text, text_rect)
 
